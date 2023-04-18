@@ -7,6 +7,7 @@ const hotelRoute = require('./routes/hotelRoute');
 const roomRoute = require('./routes/roomRoute');
 const bookingRoute = require('./routes/bookingRoute');
 const config = require('./config/database');
+const cors = require('cors');
 
 try {
     mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -38,6 +39,7 @@ try {
 // });
 
 app.use(bodyParser.json());
+app.use(cors);
 
 app.use('/api/user', userRoute);
 app.use('/api/hotel', hotelRoute);
