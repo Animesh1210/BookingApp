@@ -39,7 +39,8 @@ try {
 // });
 
 app.use(bodyParser.json());
-app.use(cors);
+app.use(cors());
+
 
 app.use('/api/user', userRoute);
 app.use('/api/hotel', hotelRoute);
