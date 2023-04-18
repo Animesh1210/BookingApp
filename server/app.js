@@ -8,18 +8,34 @@ const roomRoute = require('./routes/roomRoute');
 const bookingRoute = require('./routes/bookingRoute');
 const config = require('./config/database');
 
-// Connect to Database
-mongoose.connect(config.database);
+try {
+    mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
+  
+    // On Connection
+    mongoose.connection.on('connected', () => {
+        console.log('Connected to database ' + config.database);
+    });
+  
+    // On Error
+    mongoose.connection.on('error', (err) => {
+        console.log('Database error: ' + err);
+    });
+  } catch (err) {
+    console.error('Database connection error: ' + err);
+  }
+  
+// // Connect to Database
+// mongoose.connect(config.database);
 
-// On Connection
-mongoose.connection.on('connected', () => {
-    console.log('Connected to database ' + config.database);
-});
+// // On Connection
+// mongoose.connection.on('connected', () => {
+//     console.log('Connected to database ' + config.database);
+// });
 
-// On Error
-mongoose.connection.on('error', (err) => {
-    console.log('Database error: ' + err);
-});
+// // On Error
+// mongoose.connection.on('error', (err) => {
+//     console.log('Database error: ' + err);
+// });
 
 app.use(bodyParser.json());
 
