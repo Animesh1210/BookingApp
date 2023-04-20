@@ -10,13 +10,19 @@ const AddHotel = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/hotel/add', {
-        owner,
+      // Get user id for owner
+      const userResponse = await axios.get(`http://localhost:3000/api/user/get/${owner}`);
+      const ownerId = userResponse.data.user._id;
+  
+      // Add hotel using owner id
+      const hotelResponse = await axios.post('http://localhost:3000/api/hotel/add', {
+        owner: ownerId,
         name,
         location,
         description,
       });
-      console.log(response.data);
+      console.log(hotelResponse.data);
+  
       // reset form after successful submission
       setOwner('');
       setName('');
@@ -26,6 +32,7 @@ const AddHotel = () => {
       console.error(error);
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit}>
