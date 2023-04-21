@@ -36,10 +36,12 @@ router.post('/add', (req, res) => {
             res.json({success: true, msg: "User added"});
         }
     });
+    // console.log(req.body)
 });
 
 router.get('/delete/:username', (req, res) => {
     var username = req.params.username;
+    
     User.deleteUser(username, (err, response) => {
         if(err){
             console.log(err);
@@ -54,6 +56,7 @@ router.get('/delete/:username', (req, res) => {
 router.post('/update/:username', (req, res) => {
     var username = req.params.username;
     var data = req.body;
+    // console.log({username,data})
     User.updateUser(username, data, (err, response) => {
         if(err){
             console.log(err);

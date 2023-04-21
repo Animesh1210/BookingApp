@@ -7,7 +7,7 @@ const DeleteUser = () => {
   const handleDeleteUser = (event) => {
     event.preventDefault();
 
-    axios.get(`http://localhost:3000/api/user/delete/${username}`)
+    axios.get(`http://localhost:3001/api/user/delete/${username}`)
       .then(response => {
         console.log(response.data);
         // Reset the form fields

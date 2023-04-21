@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import {useNavigate} from "react-router-dom";
 import axios from 'axios';
+import "./css/Hotelform.css"
 
 const AddUserForm = () => {
   const [name, setName] = useState('');
@@ -8,10 +10,12 @@ const AddUserForm = () => {
   const [license, setLicense] = useState('');
   const [licenseNumber, setLicenseNumber] = useState('');
 
+  const navigate=useNavigate();
+
   const handleAddUser = (event) => {
     event.preventDefault();
 
-    axios.post('http://localhost:3000/api/user/add',  {
+    axios.post('http://localhost:3001/api/user/add',  {
       name,
       username,
       email,
@@ -32,7 +36,7 @@ const AddUserForm = () => {
       });
   };
 return (
-    <div>
+    <div className='main-container'>
       <form onSubmit={handleAddUser}>
         <div>
           <label>Name:</label>
@@ -55,6 +59,8 @@ return (
           <input type="text" value={licenseNumber} onChange={event => setLicenseNumber(event.target.value)} />
         </div>
         <button type="submit">Add User</button>
+        <button onClick={()=>navigate("/deleteuser")}>Delete User</button>
+     <button onClick={()=>navigate("/updateuser")}>Update User</button>
       </form>
   </div>
   )

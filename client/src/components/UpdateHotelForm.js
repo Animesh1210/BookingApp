@@ -11,7 +11,8 @@ const UpdateHotel = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:3000/api/hotel/update/${hotelId}`, {
+
+      const response = await axios.post(`http://localhost:3001/api/hotel/update/${hotelId}`, {
         owner,
         name,
         location,

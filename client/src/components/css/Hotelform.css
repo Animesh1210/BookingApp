@@ -1,0 +1,72 @@
+/* AddHotel Component */
+
+/* Main container */
+.main-container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  /* Form labels */
+  label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Form inputs */
+  input,
+  textarea {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    width: 100%;
+  }
+  
+  /* Submit button */
+  button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0069d9;
+  }
+  
+  /* Navigation buttons */
+  button:not([type="submit"]) {
+    background-color: #fff;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button:not([type="submit"]):hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Responsive classes */
+  @media (max-width: 576px) {
+    label {
+      font-size: 0.875rem;
+    }
+  
+    input[type="text"],
+    textarea {
+      font-size: 0.875rem;
+    }
+  
+    button[type="submit"],
+    button:not([type="submit"]) {
+      font-size: 0.875rem;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+  

@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const DeleteHotel = () => {
-  const [hotelId, setHotelId] = useState('');
+  const [hotelName, setHotelName] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.get(`http://localhost:3000/api/hotel/delete/${hotelId}`);
-      console.log(response.data);
+      const response = await axios.get(`http://localhost:3001/api/hotel/delete/${hotelName}`);
+      // console.log(response.data);
       // reset form after successful submission
-      setHotelId('');
+      setHotelName('');
     } catch (error) {
       console.error(error);
     }
@@ -19,8 +19,8 @@ const DeleteHotel = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Hotel ID:
-        <input type="text" value={hotelId} onChange={(event) => setHotelId(event.target.value)} />
+        Hotel name:
+        <input type="text" value={hotelName} onChange={(event) => setHotelName(event.target.value)} />
       </label>
       <br />
       <button type="submit">Delete Hotel</button>

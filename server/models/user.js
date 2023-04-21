@@ -33,14 +33,15 @@ module.exports.getUser = function(username, callback){
     User.findOne(query, callback);
 }
 
-module.exports.addUser = function(newUser, callback){
-    newUser.save(callback);
+module.exports.addUser = async function(newUser, callback){
+   await newUser.save(callback);
 }
 
 module.exports.deleteUser = function(username, callback){
     const query = {
         username: username
     };
+    console.log=(username);
     User.remove(query, callback);
 }
 

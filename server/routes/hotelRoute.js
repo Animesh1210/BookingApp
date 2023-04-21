@@ -16,15 +16,15 @@ router.get('/get/:hotel', (req, res) => {
     });
 });
 
-router.post('/add', (req, res) => {
-    const hotel = new Hotel({
+router.post('/add',  (req, res) => {
+    const hotel =  new Hotel({
         _id: mongoose.Types.ObjectId(),
         owner: req.body.owner,
         name: req.body.name,
         location: req.body.location,
         description: req.body.description,
     });
-    Hotel.addHotel(hotel, (err, response) => {
+     Hotel.addHotel(hotel, (err, response) => {
         if(err){
             console.log(err);
             res.json({success: false, msg: "Failed to add hotel"});
@@ -33,10 +33,12 @@ router.post('/add', (req, res) => {
             res.json({success: true, msg: "Hotel added"});
         }
     });
+    // console.log(req.body)
 });
 
 router.get('/delete/:hotel', (req, res) => {
     const hotel = req.params.hotel;
+    // console.log(hotel)
     Hotel.deleteHotel(hotel, (err, response) => {
         if(err){
             console.log(err);
@@ -51,6 +53,7 @@ router.get('/delete/:hotel', (req, res) => {
 router.post('/update/:hotel', (req, res) => {
     const id = req.params.hotel;
     const hotel = req.body;
+    console.log({id,hotel})
     Hotel.updateHotel(id, hotel, (err, response) => {
         if(err){
             console.log(err);

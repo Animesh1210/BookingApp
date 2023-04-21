@@ -1,0 +1,28 @@
+.main-frame{
+    /* background-color: red; */
+}
+.Navbar-content ul{
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+}
+.Navbar-content li{
+    display: inline-block; /* changed to inline-block to allow for vertical alignment */
+    margin: 0 10px; /* added margin to separate the links */
+}
+.Navbar-content a{
+    display: block;
+    color: rgb(222, 222, 222);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold; /* added font-weight to make the links more prominent */
+    transition: all 0.2s ease-in-out; /* added a transition effect for hover */
+    border-bottom: 2px solid transparent; /* added a transparent border to the bottom of the links */
+}
+.Navbar-content a:hover{
+    background: rgb(114, 104, 104);
+    border-bottom: 2px solid rgb(222, 222, 222); /* added a border to the bottom of the links on hover */
+}

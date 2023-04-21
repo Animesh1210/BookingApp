@@ -12,7 +12,7 @@ const UpdateUserForm = () => {
 
     const username = event.target.username.value;
 
-    axios.post(`http://localhost:3000/api/user/update/${username}`, {
+    axios.post(`http://localhost:3001/api/user/update/${username}`, {
       name,
       email,
       license,
@@ -28,7 +28,7 @@ const UpdateUserForm = () => {
       })
       .catch(error => {
         console.log(error);
-        alert("User does not exist");
+        // alert("User does not exist");
       });
   };
 

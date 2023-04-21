@@ -47,6 +47,6 @@ app.use('/api/hotel', hotelRoute);
 app.use('/api/room', roomRoute);
 app.use('/api/booking', bookingRoute);
 
-app.listen(3000, () => {
-    console.log('Server is listening on port 3000');
+app.listen(3001, () => {
+    console.log('Server is listening on port 3001');
 });

@@ -6,7 +6,11 @@ const Schema = mongoose.Schema;
 
 const HotelSchema = mongoose.Schema({
     _id: Schema.Types.ObjectId,
-    owner: { type: Schema.Types.ObjectId, ref: 'User' },
+    // owner: { type: Schema.Types.ObjectId, ref: 'User' },
+    owner: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -19,11 +23,11 @@ const HotelSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    rating: {
-        type: Number,
-        required: true,
-        default: 0
-    }
+    // rating: {V 
+    //     type: String,
+    //     required: true,
+    //     default: 0
+    // }
 });
 
 const Hotel = module.exports = mongoose.model('Hotel', HotelSchema);
@@ -33,13 +37,14 @@ module.exports.getHotel = function(hotel, callback){
     Hotel.findOne(query, callback);
 }
 
-module.exports.addHotel = function(newHotel, callback){
-    newHotel.save(callback);
-}
+module.exports.addHotel = async function(newHotel, callback){
 
+   await newHotel.save(callback);
+}
+//for delete
 module.exports.deleteHotel = function(hotel, callback){
     const query = {
-        _id: hotel
+        name: hotel
     };
     Hotel.remove(query, callback);
 }
@@ -54,5 +59,5 @@ module.exports.updateHotel = function(id, hotel, callback){
         description: hotel.description
     };
     const options = { upsert: false, new: false, setDefaultsOnInsert: true };    
-    Hotel.update(query, update, options, callback);
+    Hotel.updateOne(query, update, options, callback);
 }
