@@ -17,6 +17,8 @@ const App = () => {
         <div>
           <BrowserRouter>
           <Routes>
+          <Route path="/" element={<Home/>}/>  
+          {/* fixed landing page home */}
             <Route path="home" element={<Home/>}/>
             <Route path="addhotel" element={<AddHotel/>}/>
             <Route path="adduser" element={<AddUserForm/>}/>
